@@ -16,7 +16,7 @@ steps:
   displayName: 'Install Node.js'
 
 - script: |
-    npm install --force
+    sudo npm install --force
   displayName: 'Install Local Node Libraries'
 
 - script: |
