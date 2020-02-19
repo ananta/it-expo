@@ -15,13 +15,19 @@ steps:
     versionSpec: '10.x'
   displayName: 'Install Node.js'
 
-- script: |
-    npm install -g gatsby-cli
-  displayName: 'Install Gatsby CLI'
+  - script: |
+      npm install
+      npm run build
+    displayName: 'Running npm install and build'
 
-- script: |
-    cd it-expo
-    npm install
-    npx gatsby build
-  displayName: 'Generating Static Files'
- 
+
+  - task: CopyFiles@2
+    inputs:
+      sourceFolder: '$(System.DefaultWorkingDirectory)'
+      contents: |
+        public/**/*
+      targetFolder: '$(Build.ArtifactStagingDirectory)'
+      overWrite: true
+    displayName: 'Copying built static files'
+
+  - task: PublishBuildArtifacts@1
