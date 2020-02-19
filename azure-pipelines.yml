@@ -17,11 +17,15 @@ steps:
 
 - script: |
     npm install --force
-  displayName: 'Installing Node Libraries'
+  displayName: 'Install Local Node Libraries'
 
 - script: |
     npm install -g gatsby-cli
   displayName: 'Install Gatsby CLI'
+
+- script: |
+    npm install gatsby
+  displayName: 'Install Local Gatsby'
 
 - script: |
     gatsby build
