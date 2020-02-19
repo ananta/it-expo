@@ -15,19 +15,19 @@ steps:
     versionSpec: '10.x'
   displayName: 'Install Node.js'
 
-  - script: |
-      npm install
-      npm run build
-    displayName: 'Running npm install and build'
+- script: |
+    npm install
+    npm run build
+  displayName: 'Running npm install and build'
 
 
-  - task: CopyFiles@2
-    inputs:
-      sourceFolder: '$(System.DefaultWorkingDirectory)'
-      contents: |
-        public/**/*
-      targetFolder: '$(Build.ArtifactStagingDirectory)'
-      overWrite: true
-    displayName: 'Copying built static files'
+- task: CopyFiles@2
+  inputs:
+    sourceFolder: '$(System.DefaultWorkingDirectory)'
+    contents: |
+      public/**/*
+    targetFolder: '$(Build.ArtifactStagingDirectory)'
+    overWrite: true
+  displayName: 'Copying built static files'
 
-  - task: PublishBuildArtifacts@1
+- task: PublishBuildArtifacts@1
