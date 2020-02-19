@@ -16,12 +16,12 @@ steps:
   displayName: 'Install Node.js'
 
 - script: |
-    npm install -g gatsby-cli
-  displayName: 'Install Gatsby CLI'
-
-- script: |
     npm install
   displayName: 'Installing Node Libraries'
+
+- script: |
+    npm install -g gatsby-cli
+  displayName: 'Install Gatsby CLI'
 
 - script: |
     gatsby build
