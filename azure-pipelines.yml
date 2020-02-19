@@ -16,13 +16,12 @@ steps:
   displayName: 'Install Node.js'
 
 - script: |
-    sudo npm install --force --production
-  displayName: 'Install Local Node Libraries'
-
-- script: |
     npm install -g gatsby-cli
   displayName: 'Install Gatsby CLI'
 
 - script: |
-    gatsby build
+    cd it-expo
+    npm install
+    npx gatsby build
   displayName: 'Generating Static Files'
+ 
